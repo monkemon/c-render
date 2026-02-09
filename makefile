@@ -1,11 +1,11 @@
 CC := gcc
-CFLAGS := -Iinclude -Iutils -Iloaders -g -fsanitize=address -Wall
+CFLAGS := -Inot_mine -Iinclude -Iutils -Iloaders -g -fsanitize=address -Wall
 LDFLAGS := -lm -lGL -lglfw -lpthread
 LSAN := LSAN_OPTIONS=suppressions=lsan.supp
 EXECUTABLE := main
 
 
-SOURCES := main.c src/glad.c utils/*.c loaders/*.c
+SOURCES := main.c not_mine/src/glad.c utils/*.c loaders/*.c
 HEADERS := $(wildcard *.h include/*.h)
 
 SOURCES_TEST := TEST.c utils/*.c loaders/*.c
