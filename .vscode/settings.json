@@ -1,0 +1,25 @@
+{
+    "editor.rulers": [
+        {
+            "column": 120,
+            "color": "#641a1a"
+        },
+        {
+            "column": 80,
+            "color": "#acaf1a79"
+        }
+    ],
+
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.colorCustomizations": 
+    {
+        "tree.indentGuidesStroke": "#00b96c",
+        "tree.inactiveIndentGuidesStroke": "#313131",
+
+        "activityBar.activeBackground": "#123d2b",
+        "activityBar.foreground": "#00b96c",
+        "activityBar.activeBorder": "#00b96c",
+    }
+
+}
