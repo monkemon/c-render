@@ -559,8 +559,6 @@ int main(int argc, char** argv)
 
 	s_drawable* drawable = create_drawable();
 
-	float depth_buffer[50*50];
-
 	while(!glfwWindowShouldClose(w))
 	{
 		sysTick = glfwGetTime();
