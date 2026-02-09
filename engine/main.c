@@ -13,8 +13,6 @@
 
 #include <GLFW/glfw3.h>
 
-#include "utility_macros.h"
-#include "windows.h"
 #include "shader_manager.h"
 #include "vec_mat_4x4.h"
 #include "obj_importer.h"

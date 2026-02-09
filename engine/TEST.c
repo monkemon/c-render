@@ -1,3 +1,10 @@
+/*
+Garbage file for quick test
+
+
+>$ make a - makes and runs the file
+*/
+
 #define _POSIX_C_SOURCE 200809L
 #include <string.h>
 
