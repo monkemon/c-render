@@ -1,45 +1,13 @@
-#ifndef MAT_4x4
-#define MAT_4x4
+#ifndef VEC_MAT_4x4_H
+#define VEC_MAT_4x4_H
 
 #include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
 
-#define PI 3.14159265358979323846
-#define PI_PI_180 0.017453292519944444
-#define PI_180_PI 57.29577951307855
+#include "vec_mat_common.h"
 
-//#define RADS(x) ((x) * PI_PI_180)
-#define RADS(x) ((x) * (PI / 180))
-
-/*
-    TODO:
-        4x4 mat:
-            add
-            subtract
-            multiply
-            inverse
-            transpose
-
-            identity
-
-            add scalar
-            multiply scalar
-
-            add vector
-            multiply vector
-*/
-
-typedef float mat_4x4f[16];
-typedef float vec_4f[4];
-
-typedef enum 
-{
-    ax_x = 0,
-    ax_y = 1,
-    ax_z = 2
-} e_axis;
 
 /**
  * @brief prints vector to stdout
@@ -336,4 +304,29 @@ float* translate_mat_4x4f(mat_4x4f m, vec_4f trans_vec)
     return m;
 }
 
-#endif //MAT_4x4
+float* look_at_mat_4x4f(mat_4x4f m, vec_3f pos, vec_3f dir, vec_3f right, vec_3f up)
+{
+    mat_4x4f tmp_rud;
+    mat_4x4f tmp_pos;
+
+    identity_mat_4x4f(tmp_rud);
+    identity_mat_4x4f(tmp_pos);
+
+    tmp_rud[0] = right[0];
+    tmp_rud[1] = right[1];
+    tmp_rud[2] = right[2];
+    tmp_rud[4] = up[0];
+    tmp_rud[5] = up[1];
+    tmp_rud[6] = up[2];
+    tmp_rud[8] = dir[0];
+    tmp_rud[9] = dir[1];
+    tmp_rud[10] = dir[2];
+
+    tmp_pos[3] = -pos[0];
+    tmp_pos[7] = -pos[1];
+    tmp_pos[11] = -pos[2];
+
+    multiply_mat_4x4f_mat_4x4f(tmp_rud, tmp_pos, m);
+}
+
+#endif // VEC_MAT_4x4_H

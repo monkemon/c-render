@@ -346,7 +346,7 @@ void key_callback(
 	}
 }
 
-
+static vec_3f camera_pos;
 static mat_4x4f model_matrix;
 static mat_4x4f view_matrix;
 static mat_4x4f projection_matrix;
@@ -502,11 +502,19 @@ int main(int argc, char** argv)
 	uint64_t timerFreq = glfwGetTimerFrequency();
 	printf("GLFW timer %lu MHz\n", (timerFreq / 1000000UL));
 
+	camera_pos[0] = 0.0f;
+	camera_pos[1] = 0.0f;
+	camera_pos[2] = 3.0f;
+
 	identity_mat_4x4f(model_matrix);
 	//translate_mat_4x4f(model_matrix, (vec_4f){WINDOW_DEFAULT_SIZE_X/2,WINDOW_DEFAULT_SIZE_Y/2,0, 1.0});
 	//translate_mat_4x4f(model_matrix, (vec_4f){0.0f, 0.0f, -2.0f, 1.0f});
 
 	identity_mat_4x4f(view_matrix);
+	look_at_mat_4x4f(
+		view_matrix,
+
+	);
 
 	identity_mat_4x4f(projection_matrix);
 

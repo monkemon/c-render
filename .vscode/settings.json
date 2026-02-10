@@ -10,7 +10,7 @@
         }
     ],
 
-    "workbench.tree.indent": 16,
+    "workbench.tree.indent": 32,
     "workbench.tree.renderIndentGuides": "always",
     "workbench.colorCustomizations": 
     {
